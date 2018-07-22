@@ -31,7 +31,7 @@ This project will be a basic set up for a quick and easy start with:
 
 
 ### Webpack
-- [ ] Add config in TypeScript
+- [X] Add config in TypeScript
 - [ ] Set up config for production build
 - [ ] Add loaders for scss and source maps
 
