@@ -6,6 +6,10 @@ This project will be a basic set up for a quick and easy start with:
 - Styling with SCSS (or CSS modules)
 - Webpack as a build tool
 
+## Quick start
+1. Run `yarn` to install required packages
+2. From your project directory, run `yarn run start`. This will build the application and start a simple Express server.
+
 ## Backlog
 
 ### General checklist 
