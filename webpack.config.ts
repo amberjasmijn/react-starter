@@ -14,8 +14,8 @@ const client: webpack.Configuration = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'js/[name].bundle.js'
+    path: path.resolve(__dirname, 'public/'),
+    filename: 'dist/js/[name].bundle.js'
   },
   devtool: 'source-map',
   resolve: {
@@ -38,7 +38,7 @@ const client: webpack.Configuration = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ]
 }
 
