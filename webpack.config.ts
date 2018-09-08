@@ -1,6 +1,11 @@
 import * as webpack from 'webpack';
 import * as externals from 'webpack-node-externals'
 import * as path from 'path';
+import * as MiniCssExtractPlugin from "mini-css-extract-plugin";
+
+const mode = process.env.NODE_ENV !== 'production'
+  ? 'development'
+  : 'production'
 
 const client: webpack.Configuration = {
   mode: 'development',
@@ -23,17 +28,24 @@ const client: webpack.Configuration = {
   },
   module: {
     rules: [
+      { 
+        enforce: "pre", 
+        test: /\.js$/, 
+        loader: "source-map-loader" 
+      },
       {
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader'
       },
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
-        test: /\.css$/,
-        use: [ 
-          'style-loader', 
-          'css-loader' 
-        ]
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          mode === "development" 
+            ? 'style-loader' 
+            : { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } },
+          'css-loader',
+          'sass-loader'
+        ],
       }
     ]
   },
